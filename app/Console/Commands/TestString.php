@@ -2,7 +2,6 @@
 
 namespace App\Console\Commands;
 
-use Carbon\Carbon;
 use Illuminate\Console\Command;
 
 class TestString extends Command
@@ -55,7 +54,6 @@ class TestString extends Command
         //     and then output  "CSV created!" to stdout.
         $date = new \DateTime();
         $path = storage_path('app/public/'.$date->getTimestamp().'.csv');
-
         $file = fopen($path,'w');
         fputcsv($file, $stringArray);
         fclose($file);
