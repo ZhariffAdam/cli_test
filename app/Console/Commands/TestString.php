@@ -38,9 +38,17 @@ class TestString extends Command
     public function handle()
     {
         $string = $this->ask('Please key in some string here.');
+        $stringArray = str_split($string);
 
         // - converts the string to uppercase and outputs it to stdout.
         $this->info(strtoupper($string));
+
+        // - converts the string to alternate upper and lower case and outputs it to stdout.
+        $answer = null;
+        foreach ($stringArray as $key => $eachArray) {
+            $answer .= ($key % 2 == 0) ? strtoupper($eachArray) : strtolower($eachArray);
+        }
+        $this->info($answer);
 
         return 0;
     }
